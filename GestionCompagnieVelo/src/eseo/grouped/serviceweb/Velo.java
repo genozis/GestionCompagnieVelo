@@ -22,6 +22,19 @@ public class Velo {
 		this.prixLocation = prixLocation;
 	}
 	
+	public Velo(String codeVelo, String categorie, String ville, String prixLocation){
+		this(Integer.parseInt(codeVelo),categorie,ville,Float.parseFloat(prixLocation));
+	}
+	
+	public static Velo[] tableDeVelo(String[][] tab){
+		int ligne =tab.length;		
+		Velo[] velo = new Velo[ligne];
+		for (int i =0; i<ligne;i++){
+				velo[i] = new Velo(tab[i][0],tab[i][1],tab[i][2],tab[i][3]);
+		}
+		return velo;
+	}
+	
 	
 	// Getter and Setter
 	
