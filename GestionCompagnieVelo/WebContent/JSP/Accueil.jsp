@@ -9,20 +9,22 @@
 <body>
 	<% String nom = new String((String)session.getAttribute("nom"));
 	String prenom = new String((String)session.getAttribute("prenom"));%>
-	<%= prenom +"  "+nom %>
-	
+	<%= prenom +"  "+nom %><br><br>
+	<form method="post" action="/GestionCompagnieVelo/Deconnexion">
+	<input type="submit" value="se déconnecter">
+	</form>
 	<br><br>
 	------------------------------------------------------------------------------------------------
 	<br><br><br>
 	
-	<form method="post" action="JSP/reservation.html">
+	<form method="post" action="JSP/Reservation.html">
 	<input type="submit" value="Réserver un Vélo">
-	
+	</form>
 	<br><br><br>
 	------------------------------------------------------------------------------------------------
 	<br><br><br>
 	Mes réservations
 	
-	</form>
+	
 </body>
 </html>
