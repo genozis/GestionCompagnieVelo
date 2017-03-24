@@ -1,7 +1,9 @@
 
 DROP TABLE IF EXISTS Reservations ;
+DROP TABLE IF EXISTS Annulations;
 DROP TABLE IF EXISTS Velos ; 
 DROP TABLE IF EXISTS Clients ;
+
 
 CREATE TABLE Velos (idVelo INTEGER AUTO_INCREMENT NOT NULL PRIMARY KEY, 
 categorie VARCHAR(20), 
@@ -22,6 +24,15 @@ idClient INTEGER REFERENCES Clients(idClient),
 idVelo INTEGER REFERENCES Velos(idVelo), 
 dateLocationDebut DATE, 
 dateLocationFin DATE, 
-booleenPaimentEffectue BOOLEAN, 
+paimentEffectue BOOLEAN, 
 FOREIGN KEY (idClient) REFERENCES Clients(idClient), 
-FOREIGN KEY (idVelo) REFERENCES Velos(idVelo));  
+FOREIGN KEY (idVelo) REFERENCES Velos(idVelo));
+
+CREATE TABLE Annulations (idReservation INTEGER NOT NULL PRIMARY KEY, 
+idClient INTEGER REFERENCES Clients(idClient), 
+idVelo INTEGER REFERENCES Velos(idVelo), 
+dateLocationDebut DATE, 
+dateLocationFin DATE, 
+paimentEffectue BOOLEAN, 
+FOREIGN KEY (idClient) REFERENCES Clients(idClient), 
+FOREIGN KEY (idVelo) REFERENCES Velos(idVelo));
